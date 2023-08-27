@@ -109,6 +109,80 @@
                 "Unknown Compiler Detected, if It Seems Wrong to You Please Open an Issue on Github"
                 # error "Invalid Operating System for QSSL"
             # endif
+            //-- Check Architecture (Thanks to FreakAnon from Stack Overflow)
+            # if defined(__x86_64__) || defined(_M_X64)
+                /**
+                 * @brief x86 64 Bit Architecture Detected
+                 */
+                # define ARCHITECTURE 0
+                # pragma message \
+                "x86 64 Bit Architecture Detected"
+            # if defined(i386) || defined(__i386__) || defined(__i386) || defined(_M_IX86)
+            /**
+                 * @brief x86 64 Bit Architecture Detected
+                 */
+                # define ARCHITECTURE 1
+                # pragma message \
+                "x86 32 Bit Architecture Detected"
+            # elif defined(__ARM_ARCH_2__)
+                /**
+                 * @brief ARM2 Architecture Detected
+                 */
+                # define ARCHITECTURE 2
+                # pragma message \
+                "ARM2 Architecture Detected"
+            # elif defined(__ARM_ARCH_3__) || defined(__ARM_ARCH_3M__)
+                /**
+                 * @brief ARM3 Architecture Detected
+                 */
+                # define ARCHITECTURE 3
+                # pragma message \
+                "ARM3 Architecture Detected"
+            # elif defined(__ARM_ARCH_4T__) || defined(__TARGET_ARM_4T)
+                /**
+                 * @brief ARM4T Architecture Detected
+                 */
+                # define ARCHITECTURE 4
+                # pragma message \
+                "ARM4T Architecture Detected"
+            # elif defined(__ARM_ARCH_5_) || defined(__ARM_ARCH_5E_)
+                /**
+                 * @brief ARM5 Architecture Detected
+                 */
+                # define ARCHITECTURE 5
+                # pragma message \
+                "ARM5 Architecture Detected"
+            # elif defined(__ARM_ARCH_6T2_) || defined(__ARM_ARCH_6T2_)
+                /**
+                 * @brief ARM6T Architecture Detected
+                 */
+                # define ARCHITECTURE 6
+                # pragma message \
+                "ARM6T Architecture Detected"
+            # elif defined(__ARM_ARCH_6__) || defined(__ARM_ARCH_6J__) || defined(__ARM_ARCH_6K__) || defined(__ARM_ARCH_6Z__) || defined(__ARM_ARCH_6ZK__)
+                /**
+                 * @brief ARM6 Architecture Detected
+                 */
+                # define ARCHITECTURE -6
+                # pragma message \
+                "ARM6 Architecture Detected"
+            # elif defined(__ARM_ARCH_7__) || defined(__ARM_ARCH_7A__) || defined(__ARM_ARCH_7R__) || defined(__ARM_ARCH_7M__) || defined(__ARM_ARCH_7S__)
+                # define ARCHITECTURE "ARM7"
+            # elif defined(__ARM_ARCH_7A__) || defined(__ARM_ARCH_7R__) || defined(__ARM_ARCH_7M__) || defined(__ARM_ARCH_7S__)
+                # define ARCHITECTURE "ARM7A"
+            # elif defined(__ARM_ARCH_7R__) || defined(__ARM_ARCH_7M__) || defined(__ARM_ARCH_7S__)
+                # define ARCHITECTURE "ARM7R"
+            # elif defined(__ARM_ARCH_7M__)
+                # define ARCHITECTURE "ARM7M"
+            # elif defined(__ARM_ARCH_7S__)
+                # define ARCHITECTURE "ARM7S"
+            # elif defined(__aarch64__) || defined(_M_ARM64)
+                # define ARCHITECTURE "ARM64"
+            # elif defined(mips) || defined(__mips__) || defined(__mips)
+                # define ARCHITECTURE "MIPS"
+            # elif defined(__sh__)
+                # define ARCHITECTURE "SUPERH"
+            # endif // Check Architecture
         # endif // __QSSL_CORE
     # endif // __QSSL_LICENSE_AGREEMENT
 # endif // __QSSL_LICENSE
