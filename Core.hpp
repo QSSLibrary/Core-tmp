@@ -69,6 +69,46 @@
                 "Unknown Operating System Detected, if It Seems Wrong to You Please Open an Issue on Github"
                 # error "Invalid Operating System for QSSL"
             # endif // Check Operating System
+            //-- Check Compiler
+            # if defined(__GNUC__)
+                /**
+                 * @brief Project's Compiler is GCC (GNU Compiler Collection)
+                 */
+                # define PROJECT_COMPILER 0
+                # pragma message \
+                "GCC (GNU Compiler Collection) Compiler Detected"
+            # elif defined(__clang__)
+                /**
+                 * @brief Project's Compiler is Clang (LLVM-Based)
+                 */
+                # define PROJECT_COMPILER 1
+                # pragma message \
+                "Clang (LLVM-Based) Compiler Detected"
+            # elif defined(__MINGW32__) || defined(__MINGW64__)
+                /**
+                 * @brief Project's Compiler is Windows MinGW
+                 */
+                # define PROJECT_COMPILER 2
+                # pragma message \
+                "Windows MinGW Compiler Detected"
+                # error "QSSL Does Not Work with Windows MinGW Compiler Currently"
+            # elif defined(_MSC_VER)
+                /**
+                 * @brief Project's Compiler is Microsoft Visual C++
+                 */
+                # define PROJECT_COMPILER 3
+                # pragma message \
+                "Microsoft Visual C++ Compiler Detected"
+                # error "QSSL Does Not Work with Microsoft Visual C++ Compiler Currently"
+            # else
+                /**
+                 * @brief Project's Compiler is Unknown
+                 */
+                # define PROJECT_COMPILER -2
+                # pragma message \
+                "Unknown Compiler Detected, if It Seems Wrong to You Please Open an Issue on Github"
+                # error "Invalid Operating System for QSSL"
+            # endif
         # endif // __QSSL_CORE
     # endif // __QSSL_LICENSE_AGREEMENT
 # endif // __QSSL_LICENSE
