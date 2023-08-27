@@ -23,6 +23,10 @@
              * @date 2023-08-27
              */
             # define __QSSL_CORE
+            //-- Check C++ Version
+            # if  __cplusplus < 201103L
+                # error "This Library Can Only be Compiled on C++11 Above"
+            # endif // Check C++ Version
         # endif // __QSSL_CORE
     # endif // __QSSL_LICENSE_AGREEMENT
 # endif // __QSSL_LICENSE
