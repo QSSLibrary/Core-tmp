@@ -1,6 +1,6 @@
 # ifndef __QSSL_LICENSE
     /**
-     * @brief License of QSSL
+     * @brief QSS Open Source Astronomy and Astrophysics Library's License
      */
     # define __QSSL_LICENSE
     /**
