@@ -118,7 +118,7 @@
                 # pragma message \
                 "AMD and Intel x86 64 Bit Architecture Detected"
             # elif defined(i386) || defined(__i386__) || defined(__i386) || defined(_M_IX86)
-            /**
+                /**
                  * @brief AMD and Intel x86 64 Bit Architecture Detected
                  */
                 # define ARCHITECTURE 1
